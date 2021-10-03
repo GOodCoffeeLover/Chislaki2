@@ -1,0 +1,18 @@
+#! /usr/bin/gnuplot -persist
+
+set title "Res"
+
+set xlabel "t" font "Helvetica Bold ,18"
+set ylabel "X" rotate by 90 font "Helvetica Bold  ,18"
+set zlabel "f(x,t)" font "Helvetica Bold ,18"
+
+set xrange [0:1]
+set yrange [0:1]
+set zrange [-1:1]
+
+set view 60, 40
+a=0.05
+
+splot "./ans.txt",  exp(-4*pi*pi*a*x)*sin(2*pi*y)  
+
+pause -1 "Hit enter to continue"
