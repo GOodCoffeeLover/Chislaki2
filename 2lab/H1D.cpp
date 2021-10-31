@@ -55,8 +55,8 @@ void H1D::set_t_area(double l, double r, double step){
 }
 
 void H1D::solve(int APROX_SECOND_COND, int SHEME_TYPE){ 
-  if(pow(equ.a, 2.0)*time.step/pow(x_axis.step, 2.0) > 0.5 && SHEME_TYPE==EXPLICIT_SCHEME)
-    throw logic_error("a^2*\\tau/h^2 > 1/2 for explicit method");
+  if(pow(equ.a*time.step/x_axis.step, 2.0) > 1.0 && SHEME_TYPE==EXPLICIT_SCHEME)
+    throw logic_error("a^2*\\tau^2/h^2 > 1 for explicit method");
 
   ans.clear();
   double xj, tk;
@@ -100,7 +100,7 @@ void H1D::solve(int APROX_SECOND_COND, int SHEME_TYPE){
 
 
 
-  for(int k=2; k<(time.r -time.l)/time.step; k+=1){
+  for(int k=2; k<(time.r -time.l)/time.step + 0.00000001; k+=1){
     tk=time.l + k*time.step;
     
     vector<vector<double>> matrix{};
@@ -180,6 +180,7 @@ void H1D::solve(int APROX_SECOND_COND, int SHEME_TYPE){
   
 
 }
+
 
 
 void H1D::get_ans(vector<vector<double>>& ans_user){

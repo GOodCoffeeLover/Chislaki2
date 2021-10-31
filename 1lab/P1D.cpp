@@ -15,7 +15,7 @@ void P1D::set_equation(double a, double b, double c, f_RxRtoR F){
 }
 
 void P1D::set_left_edge_cond (double a, double b, f_RtoR f){
-  if(a+b==0.0)
+  if((abs(a)+abs(b))==0.0)
     throw logic_error("Left condition is uqeation 0 + 0 = f(t)");
     ans.clear();
     l_cond.a=a;
@@ -23,7 +23,7 @@ void P1D::set_left_edge_cond (double a, double b, f_RtoR f){
     l_cond.f = f;
 }
 void P1D::set_right_edge_cond(double a, double b, f_RtoR f){
-  if(a+b==0.0)
+  if((abs(a)+abs(b))==0.0)
     throw logic_error("Right condition is uqeation 0 + 0 = f(t)");
     ans.clear();
     r_cond.a=a;
@@ -53,11 +53,14 @@ void P1D::solve(double teta){
 // teta == 0 : explicit (yavnaya)
 // teta == 1 : implicit (neyavnaya)
 // teta == 1/2 : Krank-Nikolson
+  if(pow(equ.a, 2.0)*time.step/pow(x_axis.step, 2.0) >0.5 && teta==0)
+    throw logic_error("a^2*\\tau/h^2 > 1/2 for explicit method");
+
   ans.clear();
   
   ans.push_back({});
-  for(double x=x_axis.l; x<=x_axis.r; x+=x_axis.step)
-    ans[0].push_back(F(x));
+  for(int j = 0; j <= (x_axis.r - x_axis.l)/x_axis.step; ++j )
+    ans[0].push_back(F(x_axis.l + x_axis.step*j));
 
   for(double t=time.l+time.step; t<=time.r+0.0000000001; t+=time.step){
     

@@ -22,6 +22,7 @@ class H1D{
     H1D(){}
     ~H1D(){}
     void solve(int APROX_SECOND_COND, int SHEME_TYPE);
+   
     void get_ans(std::vector<std::vector<double>>& ans_user);
     
     void set_equation(double a, double b, double c, f_RxRtoR F);
