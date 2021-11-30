@@ -1,0 +1,19 @@
+#gnuplot -persist
+
+set title "Res"
+
+set xlabel "X" font "Helvetica Bold ,18"
+set ylabel "Y" rotate by 90 font "Helvetica Bold  ,18"
+set zlabel "u(x,y)" font "Helvetica Bold ,18"
+
+set xrange [0:1]
+set yrange [0:1]
+set zrange [0:10]
+
+set view 60, 70
+a=0.1
+
+#splot "./ans.txt",  x+y  
+
+splot x+y
+pause -1 "Hit enter to continue\n"
