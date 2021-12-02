@@ -13,6 +13,6 @@ set zrange [-1:1]
 set view 60, 70
 a=0.1
 
-#splot "./ans.txt",  exp(-4*pi*pi*a*x)*sin(2*pi*y)  
-splot "./max_ans.txt", exp(-a*x)*cos(y)
+splot "./ans.txt",  exp(-4*pi*pi*a*x)*sin(2*pi*y)  
+#splot "./max_ans.txt", exp(-a*x)*cos(y)
 pause -1 "Hit enter to continue\n"

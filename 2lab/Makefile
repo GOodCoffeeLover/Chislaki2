@@ -1,3 +1,6 @@
+CXXFLAG = -std=c++17
+CXX = g++
+
 all: H1D
 
 H1D : main.o H1D.o 
@@ -11,7 +14,7 @@ H1D.o: H1D.cpp H1D.h Progonka.hpp
 
 plot_ans: H1D
 	./H1D > ans.txt
-	./plot_ans.gpi
+	gnuplot plot_ans.gpi
 	rm ans.txt
 
 clean:

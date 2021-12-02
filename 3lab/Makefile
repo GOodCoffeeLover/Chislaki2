@@ -1,22 +1,26 @@
 CXXFLAG = -std=c++17
 CXX = g++
 
-all: H1D
+all: EE
 
-H1D : main.o H1D.o 
-	g++ H1D.o main.o  -o H1D
+EE : main.o EllipticEquation.o iters.o
+	g++ EllipticEquation.o main.o iters.o  -o EE
 
-main.o: main.cpp Progonka.hpp H1D.h
+main.o: main.cpp iters.hpp EllipticEquation.h
 	g++ -c main.cpp 
 
-H1D.o: H1D.cpp H1D.h Progonka.hpp
-	g++ -c H1D.cpp 	
+EllipticEquation.o: EllipticEquation.cpp EllipticEquation.h iters.hpp
+	g++ -c EllipticEquation.cpp 	
 
-plot_ans: H1D
-	./H1D > ans.txt
+iters.o : iters.cpp
+	g++ -c iters.cpp
+
+
+plot_ans: EE
+	./EE > ans.txt
 	gnuplot plot_ans.gpi
 	rm ans.txt
 
 clean:
-	rm H1D.o main.o
+	rm *.o EE
 

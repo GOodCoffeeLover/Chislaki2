@@ -11,9 +11,8 @@ set yrange [0:1]
 set zrange [0:10]
 
 set view 60, 70
-a=0.1
 
-#splot "./ans.txt",  x+y  
+splot "./ans.txt",  x+y  
 
-splot x+y
+#splot x+y
 pause -1 "Hit enter to continue\n"
