@@ -1,4 +1,4 @@
-#include "EllipticEquation.h"
+#include "EllipticEquation.hpp"
 
 #include "iters.hpp"
 #include<iomanip>

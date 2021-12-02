@@ -4,7 +4,7 @@
 #include <cstring>
 #include <chrono>
 
-#include "EllipticEquation.h"
+#include "EllipticEquation.hpp"
 
 
 using namespace std;

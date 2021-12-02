@@ -8,7 +8,7 @@ set zlabel "u(x,y)" font "Helvetica Bold ,18"
 
 set xrange [0:1]
 set yrange [0:1]
-set zrange [0:10]
+set zrange [0:3]
 
 set view 60, 70
 
