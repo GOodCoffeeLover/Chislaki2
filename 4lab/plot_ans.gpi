@@ -1,0 +1,22 @@
+#gnuplot -persist
+
+set title "Res"
+
+set xlabel "X" font "Helvetica Bold ,18"
+set ylabel "Y" rotate by 90 font "Helvetica Bold  ,18"
+set zlabel "u(x,y)" font "Helvetica Bold ,18"
+
+set xrange [0:pi]
+set yrange [0:pi]
+set zrange [-2*pi:2*pi]
+
+set view 60, 70
+mu1 = 1.0
+mu2 = 1.0
+a=1.0
+
+t=0.1
+
+splot "./ans.txt",  cos(mu1*x)*cos(mu2*y)*exp(-(mu1*mu1 + mu2*mu2)*a*t)  
+
+pause -1 "Hit enter to continue\n"

@@ -125,7 +125,8 @@ void libman(const std::vector<std::vector<double>>& matrix, std::vector<double> 
     for(unsigned int i = 0; i<n; ++i){
       buff[i] = prod(alpha[i], ans) + betha[i];
     }
-    
+    // if(iter%10==0)
+    //   std::cerr<<iter<<" : "<<norm(ans-buff)<<std::endl;
     if((a!= 1.0 && std::pow(a, iter+1)/(1.0 - a)*norm(ans-buff) <= eps) || (norm(ans-buff) <= eps)){
       std::cerr<<"Iter finish:"<<iter<<std::endl;
       break;

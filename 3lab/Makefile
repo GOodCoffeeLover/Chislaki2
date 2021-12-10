@@ -1,4 +1,4 @@
-CXXFLAG = -std=c++17
+CXXFLAG = -std=c++20
 CXX = g++
 
 all: EE

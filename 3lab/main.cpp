@@ -31,7 +31,7 @@ void check_args(int argc, char** argv, arguments& args){
         args.hx = buf;
       }else{
         cerr<<"Wrong Argumet"<<endl;
-        cerr<<"Usage1: "<<argv[0]<<" [error] [time] [hx <x_step>] [hy y_step]"<<endl;
+        cerr<<"Usage: "<<argv[0]<<" [error] [time] [hx <x_step>] [hy y_step]"<<endl;
         exit(-1);
       }  
       i+=1;  
@@ -44,14 +44,14 @@ void check_args(int argc, char** argv, arguments& args){
         args.hy = buf;
       }else{
         cerr<<"Wrong Argumet"<<endl;
-        cerr<<"Usage2: "<<argv[0]<<" [error] [time] [hx <x_step>] [hy y_step]"<<endl;
+        cerr<<"Usage: "<<argv[0]<<" [error] [time] [hx <x_step>] [hy y_step]"<<endl;
         exit(-1);
       }
       i+=1;    
 
     }else{
       cerr<<"Wrong Argumet"<<endl;
-      cerr<<"Usage3: "<<argv[0]<<" [error] [time] [hx <x_step>] [hy y_step]"<<endl;
+      cerr<<"Usage: "<<argv[0]<<" [error] [time] [hx <x_step>] [hy y_step]"<<endl;
       exit(-1);
     }
   
@@ -82,7 +82,7 @@ int main(int argc, char* argv[]){
   chrono::steady_clock::time_point begin = chrono::steady_clock::now();
 
   //solvers: Libman Zeldel UpperRelax
-  solver.solve(Zeldel, 1.9, 0.000001, 10000);
+  solver.solve(Zeldel, 0.8, 0.0000001, 10000);
 
   chrono::steady_clock::time_point end   = chrono::steady_clock::now();
 
