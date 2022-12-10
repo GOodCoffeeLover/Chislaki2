@@ -18,5 +18,5 @@ plot_ans: H1D
 	rm ans.txt
 
 clean:
-	rm H1D.o main.o
+	rm H1D.o main.o H1D
 
